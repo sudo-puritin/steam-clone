@@ -1,0 +1,177 @@
+:root {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: url(https://store.akamai.steamstatic.com/public/images/v6/colored_body_top.png?v=2)
+    center top no-repeat #1b2838;
+  color: #c6d4df;
+  font-size: 12px;
+}
+
+.global-header {
+  background-color: #171d25;
+  background-position: center top;
+  min-width: 940px;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.content-header {
+  position: relative;
+  width: 940px;
+  height: 104px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-evenly; */
+}
+
+.content-header .logo {
+  align-self: flex-start;
+  padding-top: 30px;
+  margin-right: 40px;
+}
+
+.content-header > .navigation {
+  display: flex;
+  gap: 15px;
+  justify-content: space-around;
+}
+
+.content-header > .navigation .nav-link {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.global-action {
+  position: relative;
+  top: 5px;
+  width: 100%;
+  align-self: flex-start;
+  margin-left: 120px;
+  line-height: 24px;
+}
+
+.global-action > .navigation {
+  position: absolute;
+  right: 0;
+  display: flex;
+  gap: 5px;
+  font-size: 11px;
+  color: #b8b6b4;
+}
+
+#install-steam {
+  width: 109px;
+  height: 21px;
+  line-height: 24px;
+  margin-right: 3px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #5c7e10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+#install-steam .btnInstall {
+  display: inline-block;
+  font-size: 11px;
+}
+
+#login-link {
+  text-decoration: none;
+  font-size: 11px;
+  color: #b8b6b4;
+}
+
+.container {
+  margin-top: 40px;
+  min-width: 972px;
+  position: relative;
+}
+
+.left-wrapper {
+  position: relative;
+  left: 90px;
+}
+
+.content-leftWrapper {
+  position: absolute;
+  width: 210px;
+}
+
+.gift-card > a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.giftCard-img {
+  margin: 0 0 2px 2;
+  color: #88bde9;
+  line-height: 16px;
+  font-size: 14px;
+  font-weight: 650;
+  text-transform: uppercase;
+}
+
+.giftCard-img > img {
+  max-width: 85%;
+  margin-bottom: 6px;
+}
+
+.gift-card .giftCard-promoText {
+  margin-top: 5px;
+  width: fit-content;
+  color: #a4b3c4;
+  font-size: 12px;
+  font-weight: 650;
+  margin-bottom: 25px;
+}
+
+.genre-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.genre-list .genre-title {
+  line-height: 16px;
+  margin: 7px 0;
+  color: #536f86;
+  font-size: 14px;
+  font-weight: 650;
+  text-transform: uppercase;
+}
+
+.genre-list > a {
+  margin: 2px 0;
+  text-decoration: none;
+  color: #7a8b9d;
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: 650;
+}
+.genre-list > a:hover {
+  color: #66c0f4;
+  text-decoration: none;
+}
