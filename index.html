@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
     <title>Welcome to Steam Clone</title>
   </head>
   <body>
@@ -45,6 +49,23 @@
       <div class="container">
         <div class="left-wrapper">
           <div class="content-leftWrapper">
+            <a
+              href="https://store.steampowered.com/app/1675200/Steam_Deck/?utm_source=steamhometop&snr=1_4_4__125"
+              class="steam-desk"
+            >
+              <div class="steamDesk-container"></div>
+              <div class="steamDesk-img">
+                <img
+                  src="https://cdn.akamai.steamstatic.com/store/steamdeck/steamdeck_promo_010.png?v=2 alt="
+                  alt=""
+                  width="179px"
+                  height="72px"
+                />
+                <br />
+                Steam Deck
+              </div>
+              <div class="steamDesk-promoText">Your Games, Everywhere</div>
+            </a>
             <div class="gift-card">
               <a
                 href="https://store.steampowered.com/digitalgiftcards/"
@@ -69,11 +90,37 @@
             </div>
           </div>
         </div>
-        <div class="right-wrapper"></div>
+        <div class="right-wrapper">
+          <div class="search-input">
+            <form id="search-form" action="#">
+              <input
+                type="text"
+                name="term"
+                id="search-game"
+                placeholder="search"
+              />
+              <a href="#" id="store-search-link">
+                <img
+                  src="https://store.akamai.steamstatic.com/public/images/v6/search_icon_btn.png"
+                  alt=""
+                />
+              </a>
+            </form>
+          </div>
+          <div class="recommended-list">
+            <h2 class="recommendedList-title">recommended</h2>
+            <div class="main-carousel">
+              <div class="gameBox">Block game 1</div>
+              <div class="gameBox">Block game 2</div>
+              <div class="gameBox">Block game 3</div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
     <footer></footer>
 
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
