@@ -300,7 +300,22 @@ body {
   height: 31px;
 }
 
+.flickity-viewport {
+  width: 930px;
+  box-shadow: 0 0 7px 0px #000;
+}
+
+.flickity-page-dots {
+  text-align: center;
+  min-height: 37px;
+}
+
+.flickity-page-dots .dot {
+  margin: 12px 2px;
+}
+
 .recommended-list {
+  max-width: 940px;
   margin: 20px 0 20px 0;
 }
 
@@ -313,8 +328,84 @@ body {
   margin-bottom: 10px;
 }
 
-.main-carousel .gameBox {
-  border: 1px solid black;
+.main-carousel .bestGame-container {
   width: 930px;
   height: 353px;
+  display: flex;
+  box-shadow: 0 0 7px 0px #000;
+}
+.bestGame-img {
+  width: 616px;
+  height: 353px;
+  border: 1px solid black;
+}
+
+.bestGame-img > img {
+  width: 616px;
+  height: 353px;
+}
+
+.bestGame-info {
+  position: relative;
+  width: 314px;
+  height: 353px;
+  padding-left: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  border: 1px solid black;
+  background-image: url(https://store.akamai.steamstatic.com/public/images/v6/home/background_maincap_2.jpg);
+}
+
+.bestGame-info .bestGame-title {
+  width: 100%;
+  height: 69px;
+  padding-top: 0;
+  font-size: 24px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+}
+
+.bestGame-info .bestGame-genre {
+  margin-top: 5px;
+  font-size: 14px;
+  display: flex;
+  gap: 10px;
+}
+
+.bestGame-genre .genre-tag {
+  max-width: 200px;
+  margin: 3px 2px 3px 0px;
+  padding: 0 7px;
+  line-height: 19px;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+  border-radius: 2px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 11px;
+}
+
+.bestGame-default {
+  margin-bottom: 30px;
+  padding: 6px 10px 0 0;
+  font-size: 21px;
+  font-weight: 200;
+  min-height: auto;
+}
+
+.bestGame-price {
+  padding: 10px 10px 10px 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.bestGame-platform {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 10px;
+  line-height: 16px;
+  font-size: 11px;
 }
