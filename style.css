@@ -409,3 +409,95 @@ body {
   line-height: 16px;
   font-size: 11px;
 }
+
+.content-promotion {
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+.content-promotion img {
+  display: block;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  max-width: 930px;
+  width: 100%;
+  max-height: 250px;
+  height: 15.4vw;
+  background-size: cover;
+}
+.content-promotion img:hover {
+  box-shadow: 0 0 12px #66c0f4;
+}
+
+.trending-game {
+  width: 940px;
+  display: flex;
+  flex-direction: column;
+}
+
+.trending-game .trendingGame-title {
+  line-height: 29px;
+  font-size: 14px;
+  color: #ffffff;
+  background: #1a2737;
+  text-shadow: -1px -1px rgba(0, 0, 0, 0.25);
+  cursor: default;
+  margin-top: 0;
+  box-shadow: none;
+}
+
+.trendingGame-list {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.trendingGame-list .gameBox {
+  height: 69px;
+  width: 940px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.gameBox .gameBox-img {
+  max-width: 184px;
+  border: none;
+}
+.gameBox img {
+  width: 184px;
+}
+
+.gameBox .gameBox-info {
+  width: 100%;
+  max-width: 600px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.gameBox-info .gameBox-title {
+  color: #c7d5e0;
+  font-size: 1.25em;
+  line-height: 18px;
+  white-space: nowrap;
+  display: block;
+  overflow: hidden;
+  transition: color 0.25s;
+}
+.gameBox-info .gameBox-platform {
+  line-height: 16px;
+  font-size: 11px;
+}
+.gameBox-info .gameBox-tags {
+  padding-top: 10px;
+}
+
+.gameBox-tags .tag {
+  white-space: nowrap;
+  color: #384959;
+  line-height: 20px;
+}
+
+.gameBox .gameBox-price {
+  width: 100%;
+  max-width: 150px;
+}
