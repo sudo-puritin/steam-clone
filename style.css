@@ -227,17 +227,18 @@ body {
   text-transform: uppercase;
 }
 
-.genre-list > a {
+.genre-list .btnGenre {
   margin: 2px 0;
   text-decoration: none;
   color: #7a8b9d;
   line-height: 16px;
   font-size: 12px;
   font-weight: 650;
+  text-transform: capitalize;
+  cursor: pointer;
 }
-.genre-list > a:hover {
+.genre-list .btnGenre:hover {
   color: #66c0f4;
-  text-decoration: none;
 }
 
 .right-wrapper {
@@ -386,6 +387,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 11px;
+  text-transform: capitalize;
 }
 
 .bestGame-default {
@@ -408,6 +410,7 @@ body {
   padding-bottom: 10px;
   line-height: 16px;
   font-size: 11px;
+  text-transform: capitalize;
 }
 
 .content-promotion {
