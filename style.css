@@ -452,12 +452,14 @@ body {
 .trendingGame-list {
   display: flex;
   flex-direction: column;
+  gap: 20px;
   padding-top: 10px;
 }
 
 .trendingGame-list .gameBox {
-  height: 69px;
+  height: 86px;
   width: 930px;
+  margin-bottom: 5px;
   display: flex;
   gap: 10px;
   flex-wrap: nowrap;
@@ -497,6 +499,11 @@ body {
   line-height: 16px;
   font-size: 11px;
 }
+
+.gameBox-platform > .tag {
+  text-transform: capitalize;
+}
+
 .gameBox-info .gameBox-tags {
   padding-top: 10px;
 }
@@ -505,6 +512,7 @@ body {
   white-space: nowrap;
   color: #384959;
   line-height: 20px;
+  text-transform: capitalize;
 }
 
 .gameBox .gameBox-price {

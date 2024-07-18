@@ -15,6 +15,7 @@ var flkty = new Flickity(".main-carousel", {
 // Varieties
 const BASE_URL = "https://steam-api-dot-cs-platform-306304.et.r.appspot.com";
 const genreList = document.querySelector(".genre-list");
+const trendingList = document.querySelector(".trendingGame-list");
 
 var requestOption = {
   method: "GET",
@@ -61,6 +62,7 @@ const getGenreList3 = async () => {
     return [];
   }
 };
+
 const getRecommendedGame = async () => {
   try {
     const url = BASE_URL + "/features";
@@ -71,10 +73,25 @@ const getRecommendedGame = async () => {
     }
   } catch (error) {
     console.log("error by getting data of recommended game", error);
+    return [];
   }
 };
 
-//RenderUI
+const getAllGames = async (query) => {
+  try {
+    const url = BASE_URL + "/games?" + `${query}`;
+    const response = await fetch(url, requestOption);
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    }
+  } catch (error) {
+    console.log("error by getting data of all games", error);
+    return [];
+  }
+};
+
+//Function Render UI
 const renderUIGenreList = (genreListData) => {
   genreListData.forEach((genre) => {
     const btnGenre = document.createElement("div");
@@ -83,11 +100,14 @@ const renderUIGenreList = (genreListData) => {
     genreList.appendChild(btnGenre);
   });
 };
+
 const renderUIRecommendedGame = (recommendedGameData) => {
   recommendedGameData.forEach((game) => {
     const recommendedGame = document.createElement("div");
     recommendedGame.className = "bestGame-container";
-    recommendedGame.innerHTML = `
+
+    if (game.price === 0) {
+      recommendedGame.innerHTML = `
               <div class="bestGame-img">
                 <img
                   src="${game["header_image"]}"
@@ -97,23 +117,104 @@ const renderUIRecommendedGame = (recommendedGameData) => {
               <div class="bestGame-info">
                 <div class="bestGame-title">${game.name}</div>
                 <div class="bestGame-genre">
-                ${game.genres.map(
-                  (genre) => `<div class="genre-tag">${genre}</div>`
-                )}
+                ${game.genres
+                  .map((genre) => `<div class="genre-tag">${genre}</div>`)
+                  .join("")}
                 </div>
                 <div class="bestGame-default">Now Available</div>
-                <div class="bestGame-price">${game.price}</div>
+                <div class="bestGame-price" style="color:green">Free</div>
                 <div class="bestGame-platform">
-                ${game.platforms.map(
-                  (platform) => `<div class="platform-tag">${platform}</div>`
-                )}
+                ${game.platforms
+                  .map(
+                    (platform) => `<div class="platform-tag">${platform}</div>`
+                  )
+                  .join("")}
                 </div>
               </div>
     `;
+    } else {
+      recommendedGame.innerHTML = `
+      <div class="bestGame-img">
+        <img
+          src="${game["header_image"]}"
+          alt="${game.name}"
+        />
+      </div>
+      <div class="bestGame-info">
+        <div class="bestGame-title">${game.name}</div>
+        <div class="bestGame-genre">
+        ${game.genres
+          .map((genre) => `<div class="genre-tag">${genre}</div>`)
+          .join("")}
+        </div>
+        <div class="bestGame-default">Now Available</div>
+        <div class="bestGame-price">$ ${game.price}</div>
+        <div class="bestGame-platform">
+        ${game.platforms
+          .map((platform) => `<div class="platform-tag">${platform}</div>`)
+          .join("")}
+        </div>
+      </div>
+`;
+    }
     document.querySelector(".main-carousel").appendChild(recommendedGame);
   });
 };
 
+const renderUITrendingGame = (trendingGameData) => {
+  trendingGameData.forEach((game) => {
+    const trendingGame = document.createElement("div");
+    trendingGame.className = "gameBox";
+    if (game.price === 0) {
+      trendingGame.innerHTML = `
+                <div class="gameBox-img">
+                  <img
+                    src="${game["header_image"]}"
+                    alt="${game.name}"
+                  />
+                </div>
+                <div class="gameBox-info">
+                  <div class="gameBox-title">${game.name}</div>
+                  <div class="gameBox-platform">
+                    ${game.platforms.map(
+                      (platform) => `<span class="tag">${platform}</span>`
+                    )}
+                  </div>
+                  <div class="gameBox-tags">
+                    ${game.genres.map(
+                      (genre) => `<span class="tag">${genre}</span>`
+                    )}
+                  </div>
+                </div>
+                <div class="gameBox-price" style = "color:green">Free To Play</div>
+    `;
+    } else {
+      trendingGame.innerHTML = `
+      <div class="gameBox-img">
+        <img
+          src="${game["header_image"]}"
+          alt="${game.name}"
+        />
+      </div>
+      <div class="gameBox-info">
+        <div class="gameBox-title">${game.name}</div>
+        <div class="gameBox-platform">
+          ${game.platforms.map(
+            (platform) => `<span class="tag">${platform}</span>`
+          )}
+        </div>
+        <div class="gameBox-tags">
+          ${game.genres.map((genre) => `<span class="tag">${genre}</span>`)}
+        </div>
+      </div>
+      <div class="gameBox-price">$ ${game.price}</div>
+`;
+    }
+    trendingList.appendChild(trendingGame);
+  });
+};
+
+//Render
 const renderGenreList1 = async () => {
   try {
     const response = await getGenreList1();
@@ -146,6 +247,7 @@ const renderGenreList = () => {
   renderGenreList2();
   renderGenreList3();
 };
+
 const renderRecommendedGame = async () => {
   try {
     const response = await getRecommendedGame();
@@ -156,6 +258,17 @@ const renderRecommendedGame = async () => {
   }
 };
 
+const renderActionGame = async () => {
+  try {
+    const response = await getAllGames("genres=action");
+    renderUITrendingGame(response.data);
+  } catch (error) {
+    console.log("error from render action game", error);
+    return [];
+  }
+};
+
 //Actions
 renderGenreList();
 renderRecommendedGame();
+renderActionGame();
