@@ -281,6 +281,12 @@ body {
   box-shadow: 1px 1px 0px rgba(255, 255, 255, 0);
 }
 
+#search-form #search-button {
+  border: none;
+  background: #305d8a;
+  cursor: pointer;
+}
+
 #search-game {
   font-size: 14px;
   color: #ffffff;

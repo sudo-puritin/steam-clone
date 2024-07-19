@@ -13,15 +13,18 @@ var flkty = new Flickity(".main-carousel", {
 });
 
 // Varieties
-const BASE_URL = "https://steam-api-dot-cs-platform-306304.et.r.appspot.com";
-const genreList = document.querySelector(".genre-list");
-const trendingList = document.querySelector(".trendingGame-list");
-
 var requestOption = {
   method: "GET",
   redirect: "follow",
 };
 
+const BASE_URL = "https://steam-api-dot-cs-platform-306304.et.r.appspot.com";
+const genreList = document.querySelector(".genre-list");
+const trendingList = document.querySelector(".trendingGame-list");
+const inputSearch = document.getElementById("search-game");
+const btnSearch = document.getElementById("search-button");
+
+let keyWords = "";
 //Functions
 const getGenreList1 = async () => {
   try {
@@ -91,11 +94,37 @@ const getAllGames = async (query) => {
   }
 };
 
+const filterGame = async (newQuery) => {
+  const queryGenre = newQuery ? newQuery : genre;
+
+  let query = "";
+  if (queryGenre) {
+    query += `genres=${queryGenre}`;
+  }
+  if (!queryGenre && keyWords) {
+    query += `q=${keyWords}`;
+  }
+  if (queryGenre && keyWords) {
+    query += `genres=${queryGenre}`;
+  }
+
+  const response = await getAllGames(query);
+  if (response.ok) {
+  }
+  if (newQuery) {
+    genre = newQuery;
+  }
+};
 //Function Render UI
 const renderUIGenreList = (genreListData) => {
   genreListData.forEach((genre) => {
     const btnGenre = document.createElement("div");
     btnGenre.className = "btnGenre";
+
+    btnGenre.addEventListener("click", () => {
+      filterGame(genre.name);
+    });
+
     btnGenre.innerHTML = genre.name;
     genreList.appendChild(btnGenre);
   });
